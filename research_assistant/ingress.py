@@ -17,14 +17,6 @@ model = SentenceTransformerEmbeddings(model=config["assistant"]['embedding-model
 
 
 match config['assistant']['db_location']:
-    case 'memory':
-        qdrant = Qdrant.from_documents(
-            documents,
-            model,
-            location=":memory:",
-            collection_name='papers',
-        )
-
     case 'local':
         qdrant = Qdrant.from_documents(
             documents,
@@ -41,9 +33,11 @@ match config['assistant']['db_location']:
             prefer_grpc=True,
             collection_name='papers',
         )
-
-
-    
-
-
+    case 'memory':
+        qdrant = Qdrant.from_documents(
+            documents,
+            model,
+            location=":memory:",
+            collection_name='papers',
+        )
 
