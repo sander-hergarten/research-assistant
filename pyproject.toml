@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "research-assistant"
+version = "0.1.0"
+description = ""
+authors = ["sander-hergarten <mail@sander-hergarten.de>"]
+readme = "README.md"
+packages = [{include = "research_assistant"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+langchain = "^0.0.310"
+openai = "^0.28.1"
+pypdf = "^3.16.3"
+qdrant-client = "^1.6.0"
+sentence-transformers = "^2.2.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+pyright = "^1.1.330.post0"
+ruff = "^0.0.292"
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
